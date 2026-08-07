@@ -3,35 +3,59 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>PeakFlow AI | AI Automation for Restaurants</title>
+    <title>PeakFlow AI | AI Automation for Businesses</title>
 
     <style>
+
+        /* =========================
+           BASIC PAGE SETTINGS
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
-            background: #0b1120;
+            background: #080d19;
             color: white;
             line-height: 1.6;
         }
+
+        /* =========================
+           NAVIGATION
+        ========================= */
 
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 8%;
+
+            padding: 22px 8%;
+
             border-bottom: 1px solid #1e293b;
+
+            position: sticky;
+            top: 0;
+
+            background: rgba(8, 13, 25, 0.95);
+
+            z-index: 1000;
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
+            letter-spacing: -0.5px;
         }
 
         .logo span {
@@ -40,25 +64,58 @@
 
         nav a {
             color: #cbd5e1;
+
             text-decoration: none;
-            margin-left: 25px;
+
+            margin-left: 28px;
+
+            transition: 0.3s;
         }
 
         nav a:hover {
-            color: white;
+            color: #38bdf8;
         }
+
+        /* =========================
+           HERO SECTION
+        ========================= */
 
         .hero {
             text-align: center;
-            padding: 120px 20px;
-            max-width: 900px;
+
+            padding: 130px 20px 110px;
+
+            max-width: 1000px;
+
             margin: auto;
         }
 
-        .hero h1 {
-            font-size: 3.5rem;
-            line-height: 1.1;
+        .hero-badge {
+            display: inline-block;
+
+            padding: 8px 16px;
+
+            border: 1px solid #1e293b;
+
+            border-radius: 50px;
+
+            color: #38bdf8;
+
+            background: #0f172a;
+
             margin-bottom: 25px;
+
+            font-size: 0.9rem;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+
+            line-height: 1.1;
+
+            margin-bottom: 25px;
+
+            letter-spacing: -2px;
         }
 
         .hero h1 span {
@@ -67,86 +124,303 @@
 
         .hero p {
             color: #94a3b8;
+
             font-size: 1.2rem;
-            max-width: 650px;
+
+            max-width: 700px;
+
             margin: auto;
         }
 
         .button {
             display: inline-block;
+
             margin-top: 35px;
+
             padding: 15px 30px;
+
             background: #38bdf8;
-            color: #0b1120;
+
+            color: #06111d;
+
             text-decoration: none;
+
             border-radius: 8px;
+
             font-weight: bold;
+
+            transition: 0.3s;
         }
 
         .button:hover {
-            opacity: 0.85;
+            transform: translateY(-2px);
+
+            opacity: 0.9;
         }
 
+        /* =========================
+           GENERAL SECTIONS
+        ========================= */
+
         section {
-            padding: 80px 8%;
+            padding: 90px 8%;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+
+            max-width: 700px;
+
+            margin: 0 auto 50px;
         }
 
         .section-title h2 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
+            font-size: 2.4rem;
+
+            margin-bottom: 12px;
         }
 
         .section-title p {
             color: #94a3b8;
         }
 
+        /* =========================
+           SERVICES
+        ========================= */
+
         .services {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            max-width: 1100px;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+
+            max-width: 1200px;
+
             margin: auto;
         }
 
         .card {
-            background: #111827;
+            background: #0f172a;
+
             border: 1px solid #1e293b;
+
             padding: 30px;
-            border-radius: 12px;
+
+            border-radius: 14px;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            border-color: #38bdf8;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+
+            margin-bottom: 18px;
         }
 
         .card h3 {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+
+            font-size: 1.2rem;
         }
 
         .card p {
             color: #94a3b8;
+
+            font-size: 0.95rem;
         }
 
-        .about {
-            text-align: center;
-            max-width: 750px;
+        /* =========================
+           INDUSTRIES
+        ========================= */
+
+        .industries {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+
+            max-width: 900px;
+
             margin: auto;
+        }
+
+        .industry {
+            background: #0f172a;
+
+            border: 1px solid #1e293b;
+
+            padding: 20px;
+
+            border-radius: 10px;
+
+            text-align: center;
+
+            color: #cbd5e1;
+
+            transition: 0.3s;
+        }
+
+        .industry:hover {
+            border-color: #38bdf8;
+
+            color: white;
+        }
+
+        /* =========================
+           HOW IT WORKS
+        ========================= */
+
+        .steps {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+
+            max-width: 1000px;
+
+            margin: auto;
+        }
+
+        .step {
+            text-align: center;
+
+            padding: 30px;
+        }
+
+        .step-number {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 55px;
+
+            height: 55px;
+
+            margin: 0 auto 20px;
+
+            border-radius: 50%;
+
+            background: #38bdf8;
+
+            color: #06111d;
+
+            font-weight: bold;
+
+            font-size: 1.2rem;
+        }
+
+        .step h3 {
+            margin-bottom: 10px;
+        }
+
+        .step p {
+            color: #94a3b8;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            max-width: 800px;
+
+            margin: auto;
+
+            text-align: center;
         }
 
         .about p {
             color: #94a3b8;
+
             font-size: 1.1rem;
+
+            margin-bottom: 20px;
         }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-box {
+            max-width: 850px;
+
+            margin: auto;
+
+            text-align: center;
+
+            background: #0f172a;
+
+            border: 1px solid #1e293b;
+
+            border-radius: 18px;
+
+            padding: 60px 30px;
+        }
+
+        .contact-box h2 {
+            font-size: 2.5rem;
+
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: #94a3b8;
+
+            max-width: 600px;
+
+            margin: auto;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
             text-align: center;
+
             padding: 40px;
+
             border-top: 1px solid #1e293b;
+
             color: #64748b;
         }
 
-        @media (max-width: 800px) {
+        /* =========================
+           MOBILE DESIGN
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .services {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero h1 {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            nav a {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 90px;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
             }
@@ -155,115 +429,367 @@
                 grid-template-columns: 1fr;
             }
 
-            nav a {
-                display: none;
+            .industries {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
     <nav>
-        <div class="logo">PeakFlow<span>AI</span></div>
+
+        <div class="logo">
+            PeakFlow<span>AI</span>
+        </div>
 
         <div>
+
             <a href="#services">Services</a>
+
+            <a href="#industries">Industries</a>
+
             <a href="#about">About</a>
+
             <a href="#contact">Contact</a>
+
         </div>
+
     </nav>
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
 
     <header class="hero">
 
+        <div class="hero-badge">
+            AI Automation Solutions
+        </div>
+
         <h1>
-            AI Automation for
-            <span>Restaurants</span>
+            Work Smarter with
+            <span>AI Automation.</span>
         </h1>
 
         <p>
-            PeakFlow AI helps restaurants save time, respond to customers,
-            and automate repetitive tasks with AI-powered systems.
+            PeakFlow AI helps businesses automate repetitive tasks,
+            save valuable time, and create better customer experiences
+            with practical AI solutions.
         </p>
 
-        <a class="button" href="mailto:you@example.com">
-            Book a Free Consultation
+        <a class="button" href="#contact">
+            Get Started
         </a>
 
     </header>
 
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
     <section id="services">
 
         <div class="section-title">
-            <h2>What We Automate</h2>
-            <p>Simple AI solutions designed for busy restaurants.</p>
+
+            <h2>
+                What We Do
+            </h2>
+
+            <p>
+                Simple AI automation solutions designed to handle
+                repetitive work and make businesses more efficient.
+            </p>
+
         </div>
+
 
         <div class="services">
 
-            <div class="card">
-                <h3>🤖 AI Customer Support</h3>
-                <p>
-                    Automatically answer common customer questions
-                    about hours, menus, locations, and more.
-                </p>
-            </div>
 
             <div class="card">
-                <h3>📅 Reservation Booking</h3>
+
+                <div class="card-icon">
+                    🤖
+                </div>
+
+                <h3>
+                    AI Customer Support
+                </h3>
+
                 <p>
-                    Help customers request and manage reservations
-                    without your staff having to handle every message.
+                    AI-powered assistants can answer common questions
+                    and help customers get information quickly.
                 </p>
+
             </div>
 
+
             <div class="card">
-                <h3>📈 Lead Follow-Up</h3>
+
+                <div class="card-icon">
+                    📅
+                </div>
+
+                <h3>
+                    Appointment Booking
+                </h3>
+
                 <p>
-                    Automatically follow up with catering and other
-                    customer inquiries so potential business doesn't get lost.
+                    Make it easier for customers to schedule appointments
+                    while reducing repetitive work for your team.
                 </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    📈
+                </div>
+
+                <h3>
+                    Lead Follow-Up
+                </h3>
+
+                <p>
+                    Automatically follow up with potential customers
+                    so important opportunities don't get forgotten.
+                </p>
+
+            </div>
+
+
+            <div class="card">
+
+                <div class="card-icon">
+                    ⚙️
+                </div>
+
+                <h3>
+                    Workflow Automation
+                </h3>
+
+                <p>
+                    Connect your everyday tools and automate repetitive
+                    processes that normally take hours.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         INDUSTRIES
+    ========================== -->
+
+    <section id="industries">
+
+        <div class="section-title">
+
+            <h2>
+                Businesses We Can Help
+            </h2>
+
+            <p>
+                AI automation can be customized for many different
+                types of businesses and industries.
+            </p>
+
+        </div>
+
+
+        <div class="industries">
+
+            <div class="industry">
+                🍽️ Restaurants
+            </div>
+
+            <div class="industry">
+                🏠 Real Estate
+            </div>
+
+            <div class="industry">
+                💪 Gyms & Fitness
+            </div>
+
+            <div class="industry">
+                💇 Salons & Barbers
+            </div>
+
+            <div class="industry">
+                🚗 Auto Businesses
+            </div>
+
+            <div class="industry">
+                🔨 Contractors
+            </div>
+
+            <div class="industry">
+                🦷 Dental Offices
+            </div>
+
+            <div class="industry">
+                ⚖️ Professional Services
+            </div>
+
+            <div class="industry">
+                🏢 Other Businesses
             </div>
 
         </div>
 
     </section>
+
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================== -->
+
+    <section>
+
+        <div class="section-title">
+
+            <h2>
+                How It Works
+            </h2>
+
+            <p>
+                Getting started with AI automation doesn't have to
+                be complicated.
+            </p>
+
+        </div>
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    1
+                </div>
+
+                <h3>
+                    Find the Problem
+                </h3>
+
+                <p>
+                    We identify repetitive tasks that are taking
+                    unnecessary time.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    2
+                </div>
+
+                <h3>
+                    Build the Solution
+                </h3>
+
+                <p>
+                    We create an automation designed around the
+                    business's specific workflow.
+                </p>
+
+            </div>
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    3
+                </div>
+
+                <h3>
+                    Automate the Work
+                </h3>
+
+                <p>
+                    The system handles repetitive work while
+                    the business focuses on its customers.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
 
     <section id="about">
 
         <div class="about">
 
-            <h2>Why PeakFlow AI?</h2>
+            <div class="section-title">
 
-            <br>
+                <h2>
+                    About PeakFlow AI
+                </h2>
+
+            </div>
 
             <p>
-                Restaurants are busy. Staff shouldn't have to spend
-                their time answering the same questions and manually
-                following up with every customer.
+                PeakFlow AI builds practical AI automation systems
+                for businesses that want to spend less time on
+                repetitive tasks.
             </p>
 
-            <br>
-
             <p>
-                PeakFlow AI builds simple automation systems that
-                handle repetitive work so restaurant teams can focus
-                on their customers.
+                From customer support and appointment booking to
+                lead follow-up and workflow automation, we create
+                solutions designed around the way each business works.
             </p>
 
         </div>
 
     </section>
 
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
     <section id="contact">
 
-        <div class="section-title">
+        <div class="contact-box">
 
-            <h2>Ready to Automate?</h2>
+            <h2>
+                Ready to Automate?
+            </h2>
 
             <p>
-                Let's find a repetitive task in your restaurant
-                that AI can handle.
+                Tell us about a repetitive task in your business
+                and let's explore how AI automation could help.
             </p>
 
             <a class="button" href="mailto:you@example.com">
@@ -274,9 +800,17 @@
 
     </section>
 
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
     <footer>
+
         © 2026 PeakFlow AI. All rights reserved.
+
     </footer>
+
 
 </body>
 
