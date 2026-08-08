@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>PeakFlow AI | Booking Demo</title>
 
   <style>
@@ -14,138 +15,159 @@
 
     body {
       font-family: Arial, sans-serif;
-      background: #070d19;
+      background: #070b16;
       color: white;
-      padding: 40px 20px;
       min-height: 100vh;
+      padding: 40px 20px;
     }
 
     .container {
-      max-width: 600px;
+      max-width: 680px;
       margin: 0 auto;
     }
 
-    .header {
+    .brand {
       text-align: center;
-      margin-bottom: 30px;
+      margin-bottom: 35px;
     }
 
-    .logo {
-      font-size: 32px;
-      font-weight: 800;
+    .brand h1 {
+      font-size: 42px;
       margin-bottom: 10px;
     }
 
-    .logo span {
+    .brand h1 span {
       color: #38bdf8;
+    }
+
+    .brand p {
+      color: #94a3b8;
+      font-size: 18px;
+    }
+
+    .card {
+      background: #111827;
+      border: 1px solid #26344d;
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    }
+
+    .card h2 {
+      font-size: 32px;
+      margin-bottom: 8px;
     }
 
     .subtitle {
       color: #94a3b8;
-      font-size: 16px;
-    }
-
-    .card {
-      background: #0f172a;
-      border: 1px solid #1e293b;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-    }
-
-    h1 {
-      font-size: 28px;
-      margin-bottom: 8px;
-    }
-
-    .description {
-      color: #94a3b8;
-      margin-bottom: 25px;
+      margin-bottom: 28px;
     }
 
     .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
 
     label {
       display: block;
-      font-weight: 700;
+      font-weight: bold;
       margin-bottom: 8px;
     }
 
     input,
     select {
       width: 100%;
-      padding: 13px 14px;
-      border-radius: 9px;
+      padding: 15px;
+      border-radius: 10px;
       border: 1px solid #334155;
-      background: #0b1324;
+      background: #0b1220;
       color: white;
-      font-size: 15px;
+      font-size: 16px;
       outline: none;
     }
 
     input:focus,
     select:focus {
       border-color: #38bdf8;
-      box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.15);
     }
 
-    select option {
-      background: #0f172a;
-      color: white;
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
     }
 
     button {
       width: 100%;
-      padding: 15px;
+      padding: 16px;
       margin-top: 8px;
       border: none;
-      border-radius: 9px;
+      border-radius: 10px;
       background: #38bdf8;
       color: #06111f;
-      font-size: 16px;
-      font-weight: 800;
+      font-size: 17px;
+      font-weight: bold;
       cursor: pointer;
-      transition: 0.2s;
+      transition: .2s;
     }
 
     button:hover {
-      opacity: 0.9;
       transform: translateY(-1px);
+      background: #67d3ff;
+    }
+
+    button:disabled {
+      opacity: .5;
+      cursor: not-allowed;
+      transform: none;
     }
 
     .confirmation {
       display: none;
-      text-align: center;
-      padding: 30px 10px;
+      margin-top: 25px;
+      padding: 22px;
+      border-radius: 14px;
+      background: #0c2a25;
+      border: 1px solid #1f806f;
     }
 
-    .confirmation-icon {
-      font-size: 48px;
-      margin-bottom: 15px;
-    }
-
-    .confirmation h2 {
-      margin-bottom: 10px;
+    .confirmation h3 {
+      color: #5eead4;
+      margin-bottom: 12px;
+      font-size: 22px;
     }
 
     .confirmation p {
-      color: #94a3b8;
-      line-height: 1.6;
+      color: #d1fae5;
+      line-height: 1.7;
+    }
+
+    .reset {
+      background: transparent;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      margin-top: 12px;
+    }
+
+    .reset:hover {
+      background: #1e293b;
     }
 
     @media (max-width: 600px) {
-      body {
-        padding: 25px 15px;
+      .row {
+        grid-template-columns: 1fr;
+        gap: 0;
       }
 
       .card {
         padding: 22px;
       }
 
-      h1 {
-        font-size: 24px;
+      .brand h1 {
+        font-size: 34px;
+      }
+
+      .card h2 {
+        font-size: 27px;
       }
     }
   </style>
@@ -155,110 +177,184 @@
 
   <div class="container">
 
-    <div class="header">
-      <div class="logo">PeakFlow<span>AI</span></div>
-      <div class="subtitle">Smart appointment automation demo</div>
+    <div class="brand">
+      <h1>PeakFlow<span>AI</span></h1>
+      <p>Smart appointment automation demo</p>
     </div>
 
     <div class="card">
 
-      <div id="bookingForm">
-        <h1>Book an Appointment</h1>
+      <h2>Book an Appointment</h2>
+      <p class="subtitle">
+        Choose a service and a time that works for you.
+      </p>
 
-        <p class="description">
-          Choose a service and a time that works for you.
-        </p>
+      <form id="bookingForm">
 
-        <form id="appointmentForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="John Smith"
+            required
+          >
+        </div>
 
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input
-              type="text"
-              id="name"
-              placeholder="John Smith"
-              required
-            >
-          </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="john@example.com"
+            required
+          >
+        </div>
 
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input
-              type="email"
-              id="email"
-              placeholder="john@example.com"
-              required
-            >
-          </div>
+        <div class="form-group">
+          <label for="service">Service</label>
+          <select id="service" required>
+            <option value="">Choose a service</option>
+            <option value="Consultation">Consultation — $75</option>
+            <option value="Strategy Session">Strategy Session — $125</option>
+            <option value="Business Automation">Business Automation — $250</option>
+            <option value="Follow-up Meeting">Follow-up Meeting — $50</option>
+          </select>
+        </div>
 
-          <div class="form-group">
-            <label for="service">Service</label>
-            <select id="service" required>
-              <option value="">Choose a service</option>
-              <option value="Consultation">Consultation</option>
-              <option value="Appointment">Appointment</option>
-              <option value="Follow-Up">Follow-Up</option>
-            </select>
-          </div>
+        <div class="row">
 
           <div class="form-group">
             <label for="date">Preferred Date</label>
-            <input
-              type="date"
-              id="date"
-              required
-            >
+            <input id="date" type="date" required>
           </div>
 
           <div class="form-group">
             <label for="time">Preferred Time</label>
             <select id="time" required>
               <option value="">Choose a time</option>
-              <option value="9:00 AM">9:00 AM</option>
-              <option value="10:00 AM">10:00 AM</option>
-              <option value="11:00 AM">11:00 AM</option>
-              <option value="1:00 PM">1:00 PM</option>
-              <option value="2:00 PM">2:00 PM</option>
-              <option value="3:00 PM">3:00 PM</option>
-              <option value="4:00 PM">4:00 PM</option>
+              <option>9:00 AM</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>1:00 PM</option>
+              <option>2:00 PM</option>
+              <option>3:00 PM</option>
+              <option>4:00 PM</option>
             </select>
           </div>
 
-          <button type="submit">
-            Book Appointment
-          </button>
+        </div>
 
-        </form>
-      </div>
+        <button type="submit">
+          Book Appointment
+        </button>
 
-      <div id="confirmation" class="confirmation">
+      </form>
 
-        <div class="confirmation-icon">✅</div>
+      <div class="confirmation" id="confirmation">
 
-        <h2>Appointment Request Received!</h2>
+        <h3>✓ Appointment Request Received</h3>
 
         <p>
-          Thanks! Your appointment request has been received.
-          This is a demo of the PeakFlow AI booking experience.
+          Thanks, <strong id="confirmName"></strong>!
+          Your <strong id="confirmService"></strong> is requested for
+          <strong id="confirmDate"></strong> at
+          <strong id="confirmTime"></strong>.
         </p>
+
+        <p style="margin-top: 10px;">
+          A confirmation will be sent to
+          <strong id="confirmEmail"></strong>.
+        </p>
+
+        <button class="reset" onclick="resetBooking()">
+          Make Another Booking
+        </button>
 
       </div>
 
     </div>
-
   </div>
 
   <script>
+
+    // Prevent customers from selecting a date in the past
+    const dateInput = document.getElementById("date");
+
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, "0");
+    const day = String(today.getDate()).padStart(2, "0");
+
+    dateInput.min = `${year}-${month}-${day}`;
+
+
+    // Handle booking
     document
-      .getElementById("appointmentForm")
+      .getElementById("bookingForm")
       .addEventListener("submit", function(event) {
 
         event.preventDefault();
 
+        const name =
+          document.getElementById("name").value;
+
+        const email =
+          document.getElementById("email").value;
+
+        const service =
+          document.getElementById("service").value;
+
+        const date =
+          document.getElementById("date").value;
+
+        const time =
+          document.getElementById("time").value;
+
+
+        // Put information into confirmation
+        document.getElementById("confirmName").textContent = name;
+
+        document.getElementById("confirmEmail").textContent = email;
+
+        document.getElementById("confirmService").textContent = service;
+
+        document.getElementById("confirmTime").textContent = time;
+
+
+        // Format date nicely
+        const formattedDate =
+          new Date(date + "T00:00:00")
+            .toLocaleDateString("en-US", {
+              weekday: "long",
+              month: "long",
+              day: "numeric",
+              year: "numeric"
+            });
+
+        document.getElementById("confirmDate").textContent =
+          formattedDate;
+
+
+        // Hide form and show confirmation
         document.getElementById("bookingForm").style.display = "none";
+
         document.getElementById("confirmation").style.display = "block";
 
       });
+
+
+    // Reset booking
+    function resetBooking() {
+
+      document.getElementById("bookingForm").reset();
+
+      document.getElementById("bookingForm").style.display = "block";
+
+      document.getElementById("confirmation").style.display = "none";
+
+    }
+
   </script>
 
 </body>
