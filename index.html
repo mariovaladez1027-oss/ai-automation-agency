@@ -1,817 +1,423 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>PeakFlow AI | AI Automation for Businesses</title>
-
-    <style>
-
-        /* =========================
-           BASIC PAGE SETTINGS
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: Arial, sans-serif;
-            background: #080d19;
-            color: white;
-            line-height: 1.6;
-        }
-
-        /* =========================
-           NAVIGATION
-        ========================= */
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-
-            padding: 22px 8%;
-
-            border-bottom: 1px solid #1e293b;
-
-            position: sticky;
-            top: 0;
-
-            background: rgba(8, 13, 25, 0.95);
-
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 1.6rem;
-            font-weight: bold;
-            letter-spacing: -0.5px;
-        }
-
-        .logo span {
-            color: #38bdf8;
-        }
-
-        nav a {
-            color: #cbd5e1;
-
-            text-decoration: none;
-
-            margin-left: 28px;
-
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #38bdf8;
-        }
-
-        /* =========================
-           HERO SECTION
-        ========================= */
-
-        .hero {
-            text-align: center;
-
-            padding: 130px 20px 110px;
-
-            max-width: 1000px;
-
-            margin: auto;
-        }
-
-        .hero-badge {
-            display: inline-block;
-
-            padding: 8px 16px;
-
-            border: 1px solid #1e293b;
-
-            border-radius: 50px;
-
-            color: #38bdf8;
-
-            background: #0f172a;
-
-            margin-bottom: 25px;
-
-            font-size: 0.9rem;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-
-            line-height: 1.1;
-
-            margin-bottom: 25px;
-
-            letter-spacing: -2px;
-        }
-
-        .hero h1 span {
-            color: #38bdf8;
-        }
-
-        .hero p {
-            color: #94a3b8;
-
-            font-size: 1.2rem;
-
-            max-width: 700px;
-
-            margin: auto;
-        }
-
-        .button {
-            display: inline-block;
-
-            margin-top: 35px;
-
-            padding: 15px 30px;
-
-            background: #38bdf8;
-
-            color: #06111d;
-
-            text-decoration: none;
-
-            border-radius: 8px;
-
-            font-weight: bold;
-
-            transition: 0.3s;
-        }
-
-        .button:hover {
-            transform: translateY(-2px);
-
-            opacity: 0.9;
-        }
-
-        /* =========================
-           GENERAL SECTIONS
-        ========================= */
-
-        section {
-            padding: 90px 8%;
-        }
-
-        .section-title {
-            text-align: center;
-
-            max-width: 700px;
-
-            margin: 0 auto 50px;
-        }
-
-        .section-title h2 {
-            font-size: 2.4rem;
-
-            margin-bottom: 12px;
-        }
-
-        .section-title p {
-            color: #94a3b8;
-        }
-
-        /* =========================
-           SERVICES
-        ========================= */
-
-        .services {
-            display: grid;
-
-            grid-template-columns: repeat(4, 1fr);
-
-            gap: 20px;
-
-            max-width: 1200px;
-
-            margin: auto;
-        }
-
-        .card {
-            background: #0f172a;
-
-            border: 1px solid #1e293b;
-
-            padding: 30px;
-
-            border-radius: 14px;
-
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-
-            border-color: #38bdf8;
-        }
-
-        .card-icon {
-            font-size: 2rem;
-
-            margin-bottom: 18px;
-        }
-
-        .card h3 {
-            margin-bottom: 12px;
-
-            font-size: 1.2rem;
-        }
-
-        .card p {
-            color: #94a3b8;
-
-            font-size: 0.95rem;
-        }
-
-        /* =========================
-           INDUSTRIES
-        ========================= */
-
-        .industries {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 15px;
-
-            max-width: 900px;
-
-            margin: auto;
-        }
-
-        .industry {
-            background: #0f172a;
-
-            border: 1px solid #1e293b;
-
-            padding: 20px;
-
-            border-radius: 10px;
-
-            text-align: center;
-
-            color: #cbd5e1;
-
-            transition: 0.3s;
-        }
-
-        .industry:hover {
-            border-color: #38bdf8;
-
-            color: white;
-        }
-
-        /* =========================
-           HOW IT WORKS
-        ========================= */
-
-        .steps {
-            display: grid;
-
-            grid-template-columns: repeat(3, 1fr);
-
-            gap: 25px;
-
-            max-width: 1000px;
-
-            margin: auto;
-        }
-
-        .step {
-            text-align: center;
-
-            padding: 30px;
-        }
-
-        .step-number {
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            width: 55px;
-
-            height: 55px;
-
-            margin: 0 auto 20px;
-
-            border-radius: 50%;
-
-            background: #38bdf8;
-
-            color: #06111d;
-
-            font-weight: bold;
-
-            font-size: 1.2rem;
-        }
-
-        .step h3 {
-            margin-bottom: 10px;
-        }
-
-        .step p {
-            color: #94a3b8;
-        }
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about {
-            max-width: 800px;
-
-            margin: auto;
-
-            text-align: center;
-        }
-
-        .about p {
-            color: #94a3b8;
-
-            font-size: 1.1rem;
-
-            margin-bottom: 20px;
-        }
-
-        /* =========================
-           CONTACT
-        ========================= */
-
-        .contact-box {
-            max-width: 850px;
-
-            margin: auto;
-
-            text-align: center;
-
-            background: #0f172a;
-
-            border: 1px solid #1e293b;
-
-            border-radius: 18px;
-
-            padding: 60px 30px;
-        }
-
-        .contact-box h2 {
-            font-size: 2.5rem;
-
-            margin-bottom: 15px;
-        }
-
-        .contact-box p {
-            color: #94a3b8;
-
-            max-width: 600px;
-
-            margin: auto;
-        }
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            text-align: center;
-
-            padding: 40px;
-
-            border-top: 1px solid #1e293b;
-
-            color: #64748b;
-        }
-
-        /* =========================
-           MOBILE DESIGN
-        ========================= */
-
-        @media (max-width: 900px) {
-
-            .services {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero h1 {
-                font-size: 3rem;
-            }
-        }
-
-        @media (max-width: 600px) {
-
-            nav a {
-                display: none;
-            }
-
-            .hero {
-                padding-top: 90px;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .services {
-                grid-template-columns: 1fr;
-            }
-
-            .industries {
-                grid-template-columns: 1fr;
-            }
-
-            .steps {
-                grid-template-columns: 1fr;
-            }
-        }
-
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>PeakFlow AI | Appointment Automation Demo</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #070b16;
+      color: white;
+      line-height: 1.6;
+      padding: 30px 20px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .logo span {
+      color: #38bdf8;
+    }
+
+    .tagline {
+      color: #94a3b8;
+      font-size: 17px;
+    }
+
+    .card {
+      background: #111827;
+      border: 1px solid #263449;
+      border-radius: 18px;
+      padding: 35px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+
+    h1 {
+      font-size: 34px;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #94a3b8;
+      margin-bottom: 30px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #334155;
+      background: #0b1220;
+      color: white;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      border-color: #38bdf8;
+    }
+
+    textarea {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    button {
+      width: 100%;
+      margin-top: 25px;
+      padding: 16px;
+      border: none;
+      border-radius: 10px;
+      background: #38bdf8;
+      color: #06111d;
+      font-size: 17px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #67cdf7;
+    }
+
+    .trust {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .trust-box {
+      background: #0b1220;
+      border: 1px solid #263449;
+      border-radius: 12px;
+      padding: 18px;
+      text-align: center;
+    }
+
+    .trust-box strong {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .trust-box span {
+      color: #94a3b8;
+      font-size: 14px;
+    }
+
+    .success {
+      display: none;
+      background: #063b2b;
+      border: 1px solid #10b981;
+      border-radius: 14px;
+      padding: 25px;
+      margin-top: 25px;
+    }
+
+    .success h2 {
+      color: #6ee7b7;
+      margin-bottom: 10px;
+    }
+
+    .success p {
+      color: #d1fae5;
+      margin-bottom: 7px;
+    }
+
+    .small {
+      color: #94a3b8;
+      font-size: 13px;
+      margin-top: 25px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      color: #64748b;
+      margin-top: 30px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 650px) {
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      .trust {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 25px 20px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
-
 
 <body>
 
-    <!-- =========================
-         NAVIGATION
-    ========================== -->
+  <div class="container">
 
-    <nav>
+    <header>
+      <div class="logo">
+        PeakFlow<span>AI</span>
+      </div>
 
-        <div class="logo">
-            PeakFlow<span>AI</span>
-        </div>
-
-        <div>
-
-            <a href="#services">Services</a>
-
-            <a href="#industries">Industries</a>
-
-            <a href="#about">About</a>
-
-            <a href="#contact">Contact</a>
-
-        </div>
-
-    </nav>
-
-
-    <!-- =========================
-         HERO
-    ========================== -->
-
-    <header class="hero">
-
-        <div class="hero-badge">
-            AI Automation Solutions
-        </div>
-
-        <h1>
-            Work Smarter with
-            <span>AI Automation.</span>
-        </h1>
-
-        <p>
-            PeakFlow AI helps businesses automate repetitive tasks,
-            save valuable time, and create better customer experiences
-            with practical AI solutions.
-        </p>
-
-        <a class="button" href="#contact">
-            Get Started
-        </a>
-
+      <p class="tagline">
+        Appointment automation for modern businesses
+      </p>
     </header>
 
+    <div class="card">
 
-    <!-- =========================
-         SERVICES
-    ========================== -->
+      <h1>Book an Appointment</h1>
 
-    <section id="services">
+      <p class="subtitle">
+        Choose a service and a time that works for you.
+      </p>
 
-        <div class="section-title">
+      <form id="bookingForm">
 
-            <h2>
-                What We Do
-            </h2>
+        <div class="form-grid">
 
-            <p>
-                Simple AI automation solutions designed to handle
-                repetitive work and make businesses more efficient.
-            </p>
+          <div>
+            <label for="name">Your Name</label>
+            <input
+              type="text"
+              id="name"
+              placeholder="John Smith"
+              required
+            >
+          </div>
 
-        </div>
+          <div>
+            <label for="business">Business Type</label>
+            <select id="business" required>
+              <option value="">Select one</option>
+              <option>Restaurant</option>
+              <option>Barbershop</option>
+              <option>Salon</option>
+              <option>Auto Shop</option>
+              <option>Real Estate</option>
+              <option>Medical Office</option>
+              <option>Fitness Business</option>
+              <option>Professional Service</option>
+              <option>Other</option>
+            </select>
+          </div>
 
+          <div>
+            <label for="email">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              placeholder="john@example.com"
+              required
+            >
+          </div>
 
-        <div class="services">
+          <div>
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              placeholder="(555) 123-4567"
+              required
+            >
+          </div>
 
+          <div>
+            <label for="service">Service</label>
+            <select id="service" required>
+              <option value="">Choose a service</option>
+              <option>Consultation</option>
+              <option>Appointment</option>
+              <option>Estimate</option>
+              <option>Service Call</option>
+              <option>Demo</option>
+              <option>Other</option>
+            </select>
+          </div>
 
-            <div class="card">
+          <div>
+            <label for="date">Preferred Date</label>
+            <input
+              type="date"
+              id="date"
+              required
+            >
+          </div>
 
-                <div class="card-icon">
-                    🤖
-                </div>
+          <div>
+            <label for="time">Preferred Time</label>
+            <select id="time" required>
+              <option value="">Choose a time</option>
+              <option>9:00 AM</option>
+              <option>10:00 AM</option>
+              <option>11:00 AM</option>
+              <option>12:00 PM</option>
+              <option>1:00 PM</option>
+              <option>2:00 PM</option>
+              <option>3:00 PM</option>
+              <option>4:00 PM</option>
+              <option>5:00 PM</option>
+            </select>
+          </div>
 
-                <h3>
-                    AI Customer Support
-                </h3>
+          <div>
+            <label for="contact">Preferred Contact</label>
+            <select id="contact" required>
+              <option value="">Choose one</option>
+              <option>Phone</option>
+              <option>Email</option>
+              <option>Text Message</option>
+            </select>
+          </div>
 
-                <p>
-                    AI-powered assistants can answer common questions
-                    and help customers get information quickly.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">
-                    📅
-                </div>
-
-                <h3>
-                    Appointment Booking
-                </h3>
-
-                <p>
-                    Make it easier for customers to schedule appointments
-                    while reducing repetitive work for your team.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">
-                    📈
-                </div>
-
-                <h3>
-                    Lead Follow-Up
-                </h3>
-
-                <p>
-                    Automatically follow up with potential customers
-                    so important opportunities don't get forgotten.
-                </p>
-
-            </div>
-
-
-            <div class="card">
-
-                <div class="card-icon">
-                    ⚙️
-                </div>
-
-                <h3>
-                    Workflow Automation
-                </h3>
-
-                <p>
-                    Connect your everyday tools and automate repetitive
-                    processes that normally take hours.
-                </p>
-
-            </div>
-
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         INDUSTRIES
-    ========================== -->
-
-    <section id="industries">
-
-        <div class="section-title">
-
-            <h2>
-                Businesses We Can Help
-            </h2>
-
-            <p>
-                AI automation can be customized for many different
-                types of businesses and industries.
-            </p>
+          <div class="full">
+            <label for="notes">Anything We Should Know?</label>
+            <textarea
+              id="notes"
+              placeholder="Tell us anything that may help before the appointment..."
+            ></textarea>
+          </div>
 
         </div>
 
+        <button type="submit">
+          Request Appointment
+        </button>
 
-        <div class="industries">
+      </form>
 
-            <div class="industry">
-                🍽️ Restaurants
-            </div>
+      <div class="trust">
 
-            <div class="industry">
-                🏠 Real Estate
-            </div>
-
-            <div class="industry">
-                💪 Gyms & Fitness
-            </div>
-
-            <div class="industry">
-                💇 Salons & Barbers
-            </div>
-
-            <div class="industry">
-                🚗 Auto Businesses
-            </div>
-
-            <div class="industry">
-                🔨 Contractors
-            </div>
-
-            <div class="industry">
-                🦷 Dental Offices
-            </div>
-
-            <div class="industry">
-                ⚖️ Professional Services
-            </div>
-
-            <div class="industry">
-                🏢 Other Businesses
-            </div>
-
+        <div class="trust-box">
+          <strong>⚡ Fast</strong>
+          <span>Simple appointment requests</span>
         </div>
 
-    </section>
-
-
-    <!-- =========================
-         HOW IT WORKS
-    ========================== -->
-
-    <section>
-
-        <div class="section-title">
-
-            <h2>
-                How It Works
-            </h2>
-
-            <p>
-                Getting started with AI automation doesn't have to
-                be complicated.
-            </p>
-
+        <div class="trust-box">
+          <strong>🤖 Automated</strong>
+          <span>Designed for automated workflows</span>
         </div>
 
-
-        <div class="steps">
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    1
-                </div>
-
-                <h3>
-                    Find the Problem
-                </h3>
-
-                <p>
-                    We identify repetitive tasks that are taking
-                    unnecessary time.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    2
-                </div>
-
-                <h3>
-                    Build the Solution
-                </h3>
-
-                <p>
-                    We create an automation designed around the
-                    business's specific workflow.
-                </p>
-
-            </div>
-
-
-            <div class="step">
-
-                <div class="step-number">
-                    3
-                </div>
-
-                <h3>
-                    Automate the Work
-                </h3>
-
-                <p>
-                    The system handles repetitive work while
-                    the business focuses on its customers.
-                </p>
-
-            </div>
-
-
+        <div class="trust-box">
+          <strong>📱 Flexible</strong>
+          <span>Works on phones and computers</span>
         </div>
 
-    </section>
+      </div>
 
+      <div class="success" id="successMessage">
 
-    <!-- =========================
-         ABOUT
-    ========================== -->
+        <h2>Appointment Request Received! ✅</h2>
 
-    <section id="about">
+        <p id="confirmationText"></p>
 
-        <div class="about">
+        <p>
+          This is a PeakFlow AI demonstration.
+          A real client system can connect this request
+          to calendars, email, SMS, CRM systems, and other
+          business tools.
+        </p>
 
-            <div class="section-title">
+      </div>
 
-                <h2>
-                    About PeakFlow AI
-                </h2>
+      <p class="small">
+        PeakFlow AI — Demonstration website
+      </p>
 
-            </div>
-
-            <p>
-                PeakFlow AI builds practical AI automation systems
-                for businesses that want to spend less time on
-                repetitive tasks.
-            </p>
-
-            <p>
-                From customer support and appointment booking to
-                lead follow-up and workflow automation, we create
-                solutions designed around the way each business works.
-            </p>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         CONTACT
-    ========================== -->
-
-    <section id="contact">
-
-        <div class="contact-box">
-
-            <h2>
-                Ready to Automate?
-            </h2>
-
-            <p>
-                Tell us about a repetitive task in your business
-                and let's explore how AI automation could help.
-            </p>
-
-            <a class="button" href="mailto:you@example.com">
-                Contact PeakFlow AI
-            </a>
-
-        </div>
-
-    </section>
-
-
-    <!-- =========================
-         FOOTER
-    ========================== -->
+    </div>
 
     <footer>
-
-        © 2026 PeakFlow AI. All rights reserved.
-
+      © 2026 PeakFlow AI. All rights reserved.
     </footer>
 
+  </div>
+
+  <script>
+
+    const form = document.getElementById("bookingForm");
+
+    form.addEventListener("submit", function(event) {
+
+      event.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const service = document.getElementById("service").value;
+      const date = document.getElementById("date").value;
+      const time = document.getElementById("time").value;
+
+      const successMessage =
+        document.getElementById("successMessage");
+
+      const confirmationText =
+        document.getElementById("confirmationText");
+
+      confirmationText.textContent =
+        `${name}, your request for ${service} on ${date} at ${time} has been received.`;
+
+      successMessage.style.display = "block";
+
+      form.style.display = "none";
+
+      successMessage.scrollIntoView({
+        behavior: "smooth"
+      });
+
+    });
+
+  </script>
 
 </body>
-
 </html>
